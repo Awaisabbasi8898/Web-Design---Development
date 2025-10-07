@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JobPulse - Job Search Aggregator</title>
+
+  
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap icons (for little icons) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+  <!-- Sticky navbar -->
+  <nav class="navbar navbar-dark sticky-top bg-dark glass py-2">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#" style="gap:.5rem;">
+        <span class="brand-logo">
+          <span class="brand-dot"></span>
+          <span style="font-size:1.05rem">JobPulse</span>
+        </span>
+      </a>
+
+      <div class="d-flex align-items-center gap-2">
+    
+      <a id="githubBtn" class="btn btn-lg" href="https://github.com/KhurramRaja35" target="_blank" rel="noopener" title="Open GitHub repo">
+        <i class="bi bi-github" aria-hidden="true"></i>
+        <span class="visually-hidden" >GitHub</span>
+      </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main container -->
+  <main class="container py-4">
+
+    <!-- Hero -->
+    <section class="hero glass p-4 position-relative">
+      <div class="row align-items-center gx-3">
+        <div class="col-md-8">
+          <h1>Find Your Next Remote Job</h1>
+          <p class="lead mb-0">Search thousands of remote & Europe-focused tech jobs aggregated from multiple ATS systems. Filter by keyword, location, and remote-only roles.</p>
+        </div>
+
+        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+          <div class="d-inline-block p-2" style="border-radius:.7rem;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))">
+            <small class="text-muted">Powered by</small>
+            <div class="d-flex align-items-center gap-2 mt-1 justify-content-end">
+              <!-- <img src="https://arbeitnow.com/static/media/logo.26d2e7d3.svg" alt="ArbeitNow" width="88" style="filter:grayscale(1) brightness(.9);opacity:.95;"> -->
+               <!-- add link + graceful fallback when remote image fails -->
+              <a href="https://arbeitnow.com" target="_blank" rel="noopener" title="ArbeitNow">
+                <img src="https://arbeitnow.com/static/media/logo.26d2e7d3.svg" alt="ArbeitNow" width="88"
+                     style="filter:grayscale(1) brightness(.9);opacity:.95;"
+                     onerror="this.onerror=null; this.replaceWith(document.createTextNode('ArbeitNow'));">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SVG wave bottom -->
+      <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="g1" x1="0%" x2="100%">
+            <stop offset="0%" stop-color="#8a5cff" stop-opacity="0.18" />
+            <stop offset="100%" stop-color="#30c8ff" stop-opacity="0.12" />
+          </linearGradient>
+        </defs>
+        <path d="M0,30 C200,90 400,-10 720,30 C1000,60 1200,10 1440,40 L1440,80 L0,80 Z" fill="url(#g1)"></path>
+      </svg>
+    </section>
+
+    <!-- Search bar (glass) -->
+    <section class="search-pane glass p-3 mb-3">
+      <form id="searchForm" class="row gy-2 gx-2 align-items-center">
+        <div class="col-12 col-md-5">
+          <input id="keyword" type="search" class="form-control search-input" placeholder="Front-end, PHP, Design …" aria-label="Keyword">
+        </div>
+        <div class="col-12 col-md-4">
+          <input id="location" type="text" class="form-control search-input" placeholder="Berlin, Remote, …" aria-label="Location">
+        </div>
+        <div class="col-auto d-flex align-items-center gap-2">
+          <div class="form-check form-switch text-white">
+            <input class="form-check-input" type="checkbox" id="remoteOnly">
+            <label class="form-check-label" for="remoteOnly" style="font-weight:600">Remote only</label>
+          </div>
+        </div>
+        <div class="col-auto ms-auto">
+          <button id="searchBtn" class="btn neon-btn neon-outline px-4" type="submit">
+            <i class="bi bi-search"></i> Search
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Stats row -->
+    <section class="mb-3">
+      <div class="row g-3">
+        <div class="col-12 col-md-4">
+          <div class="card glass p-3 h-100">
+            <div class="d-flex align-items-center gap-3">
+              <div class="stat-icon">
+                <i class="bi bi-briefcase-fill" style="font-size:1.2rem;color:linear-gradient(var(--neon));"></i>
+              </div>
+              <div>
+                <div class="text-muted small">Total Jobs</div>
+                <div id="statTotal" class="h5 mb-0">—</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card glass p-3 h-100">
+            <div class="d-flex align-items-center gap-3">
+              <div class="stat-icon">
+                <i class="bi bi-globe2"></i>
+              </div>
+              <div>
+                <div class="text-muted small">Remote Jobs</div>
+                <div id="statRemote" class="h5 mb-0">—</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card glass p-3 h-100">
+            <div class="d-flex align-items-center gap-3">
+              <div class="stat-icon">
+                <i class="bi bi-grid-3x3-gap"></i>
+              </div>
+              <div>
+                <div class="text-muted small">Pages Available</div>
+                <div id="statPages" class="h5 mb-0">—</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section id="resultsSection" class="mb-4">
+      <div id="resultsRow" class="row g-3">
+        <!-- Job cards injected here -->
+      </div>
+
+      <!-- Pagination -->
+      <nav aria-label="Search results pages" class="mt-4">
+        <ul id="pagination" class="pagination justify-content-center flex-wrap"></ul>
+      </nav>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-muted">
+      <div>© <span id="year"></span> JobPulse • Built with Bootstrap & ArbeitNow API •
+        <a class="repo-link" href="https://github.com/KhurramRaja35" id="repoLink" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Bootstrap + Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
