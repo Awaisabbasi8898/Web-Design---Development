@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Ramp – Responsive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f7fa;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(10,25,74,0.9);
+      color: white;
+      z-index: 1000;
+    }
+    .logo img { height: 40px; }
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .menu a:hover {
+      color: orange;
+      transform: scale(1.05);
+    }
+    .get-started {
+      background-color: orange;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(10,25,74,0.7), rgba(10,25,74,0.7)), 
+                  url('lab_03/asset/home-banner-bg.webp') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 100px 20px 60px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: #1e90ff; }
+    .hero p { font-size: 1.1rem; margin-bottom: 30px; max-width: 600px; }
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .hero-buttons a {
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .btn-orange { background-color: orange; color: white; }
+    .btn-blue { background-color: #1e90ff; color: white; }
+    .no-credit { font-size: 0.9rem; color: #ccc; margin-top: 10px; }
+
+    /* Stats */
+    .stats {
+      background-color: #2196f3;
+      padding: 60px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      text-align: center;
+    }
+    .stat-item h2 { color: white; font-size: 2rem; }
+    .stat-item p { color: #e0e0e0; }
+
+    /* Content Sections */
+    section.manage-projects, section.manage-clients {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 40px;
+      gap: 50px;
+    }
+    .manage-text, .manage-clients-text {
+      flex: 1 1 400px;
+      max-width: 500px;
+    }
+    .manage-text h2, .manage-clients-text h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #111;
+    }
+    .manage-text p, .manage-clients-text p { color: #444; margin-bottom: 15px; }
+    .manage-text ul, .manage-clients-text ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 15px;
+    }
+    .manage-text ul li::before,
+    .manage-clients-text ul li::before {
+      content: '✔️';
+      margin-right: 10px;
+      color: #1e90ff;
+    }
+    .btn-get-started {
+      display: inline-block;
+      background-color: #1e90ff;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .manage-image, .manage-clients-image {
+      flex: 1 1 400px;
+      max-width: 500px;
+    }
+    .manage-image img, .manage-clients-image img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #39A7F0;
+      color: white;
+      padding: 60px 20px;
+      font-family: sans-serif;
+    }
+    footer .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    footer ul { list-style: none; padding: 0; }
+    footer ul li a {
+      color: white;
+      text-decoration: none;
+      line-height: 2;
+    }
+    footer ul li a:hover { text-decoration: underline; }
+    footer p { font-size: 14px; }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 992px) {
+      .navbar { flex-direction: column; padding: 15px; }
+      .menu { flex-wrap: wrap; justify-content: center; }
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+      .manage-projects, .manage-clients {
+        flex-direction: column;
+        padding: 40px 20px;
+      }
+      .menu { gap: 10px; }
+    }
+    @media (max-width: 480px) {
+      .hero-buttons a {
+        width: 100%;
+        text-align: center;
+      }
+      .stats { gap: 20px; }
+      footer .footer-content { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo"><img src="lab_03/asset/logo-client-ramp1.webp" alt="Client Ramp Logo"></div>
+    <div class="menu">
+      <a href="#">Support</a>
+      <a href="#">FAQ</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Sign In</a>
+      <a href="#" class="get-started">Get Started →</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Manage Your <br><span>Clients and Projects</span></h1>
+    <p>All-in-One CRM, Project Management and Client Relationship Tools.</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn-orange">Get Started</a>
+      <a href="#" class="btn-blue">Sign In</a>
+    </div>
+    <div class="no-credit">No credit card required to get started!</div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="stat-item"><h2>2,486</h2><p>Subscribers</p></div>
+    <div class="stat-item"><h2>645,089</h2><p>Open Projects</p></div>
+    <div class="stat-item"><h2>152,834</h2><p>Finished Projects</p></div>
+    <div class="stat-item"><h2>32,392</h2><p>Project Members</p></div>
+  </section>
+
+  <!-- Manage Projects -->
+  <section class="manage-projects">
+    <div class="manage-text">
+      <h2>Manage Projects</h2>
+      <p>Stay organized with a centralized platform for project creation, task assignment, and deadline tracking.</p>
+      <ul>
+        <li>Assign tasks to team members.</li>
+        <li>Monitor progress and set milestones.</li>
+        <li>Log every action and ensure timely delivery.</li>
+        <li>Private label for your website and users.</li>
+      </ul>
+      <a href="#" class="btn-get-started">Get Started →</a>
+    </div>
+    <div class="manage-image">
+      <img src="lab_03/asset/manage-projects.webp" alt="Manage Projects Screenshot">
+    </div>
+  </section>
+
+  <!-- Manage Clients -->
+  <section class="manage-clients">
+    <div class="manage-clients-image">
+      <img src="lab_03/asset/manage-clients.webp" alt="Manage Clients Screenshot">
+    </div>
+    <div class="manage-clients-text">
+      <h2>Manage Clients</h2>
+      <p>Easily add, update, and track client details for any stage of a project with seamless communication.</p>
+      <ul>
+        <li>Track contact details, project history, and invoices.</li>
+        <li>Manage meetings, calls, and notes.</li>
+        <li>Share client details with your team securely.</li>
+      </ul>
+      <a href="#" class="btn-get-started">Get Started →</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div>
+        <img src="lab_03/asset/logo-client-ramp1.webp" alt="Client Ramp Logo" style="width: 140px; margin-bottom: 20px;">
+        <ul>
+          <li><a href="#">Get Started</a></li>
+          <li><a href="#">Sign In</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <p>📍105 Tryon Village Drive Suite 303 #27 Cary, NC 27518</p>
+        <p style="margin-top: 10px;">© 2025 ClientRamp – All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
