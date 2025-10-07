@@ -1,0 +1,8 @@
+let f_name=document.getElementById("f_name")
+let l_name=document.getElementById("l_name")
+let email=document.getElementById("email")
+let password=document.getElementById("password")
+let confir_pass=document.getElementById("confir_pass")
+let phone=document.getElementById("phone")
+let myform = document.getElementById("form")
+myform addEventListener('submit')
