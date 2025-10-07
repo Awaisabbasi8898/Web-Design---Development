@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pixel Power</title>
+
+  <!-- Import Roboto font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 30px;
+      border-bottom: 1px solid #ddd;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 24px;
+    }
+    .logo span {
+      color: orange;
+    }
+    .menu {
+      display: flex;
+      align-items: center;
+      border: 1px solid black;
+      border-radius: 25px;
+      padding: 5px;
+    }
+    .menu a {
+      text-decoration: none;
+      color: black;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .menu a.active {
+      background-color: orange;
+      color: white;
+    }
+    .contact-btn {
+      background-color: black;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* Welcome Section */
+    .welcome-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+      background-color: #faf8d8;
+    }
+    .welcome-text {
+      flex: 1;
+      padding-right: 30px;
+    }
+    .welcome-text h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .welcome-text p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .explore-btn {
+      background-color: orange;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .welcome-image {
+      flex: 1;
+    }
+    .welcome-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 20px;
+    }
+
+    /* Journey Section */
+    .journey-section {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      font-size: 24px;
+      line-height: 1.5;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #faf8d8;
+      padding: 50px 20px;
+    }
+    .map-container {
+      flex: 1;
+      min-width: 300px;
+      margin-right: 20px;
+    
+
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100vh;
+     
+    }
+    .form-container {
+      flex: 1;
+      min-width: 500px;
+      background-color: #faf8d8;
+    }
+    .form-container h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .form-container p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .form-container form input,
+    .form-container form textarea {
+      width: 90%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: 'Roboto', sans-serif;
+    }
+    .form-container form button {
+      background-color: orange;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: black;
+      color: white;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .welcome-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .contact-section {
+        flex-direction: column;
+      }
+      .map-container, .form-container {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">Pixel <span>Power</span></div>
+    <div class="menu">
+      <a href="#" class="active">Home</a>
+      <a href="#">Lectures</a>
+      <a href="#">Labs</a>
+      <a href="#">Student Work</a>
+      <a href="#">Resources</a>
+      <a href="#">Blogs</a>
+    </div>
+    <a href="#" class="contact-btn">Contact</a>
+  </div>
+
+  <!-- Welcome Section -->
+  <section class="welcome-section">
+    <div class="welcome-text">
+      <h1>Welcome to Our Class Web Portal</h1>
+      <p>This site is part of our practical learning journey in web development. Here, students learn HTML, CSS (including floats), forms, and responsive design by building and contributing to this platform.</p>
+      <a href="#" class="explore-btn">Start Exploring</a>
+    </div>
+    <div class="welcome-image">
+      <img src="C:\Users\awais\OneDrive\Desktop\WDD\lab_02\assets\hero-image.jpg" alt="Students working">
+    </div>
+  </section>
+
+  <!-- Journey Section -->
+  <section class="journey-section">
+    This isn’t just a website — it’s a learning journey. Here, students document what they learn and build.
+  </section>
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.3926251607986!2d73.475130275402!3d33.897142625697746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dcf5e205746a91%3A0xf91c26c9c7ad653!2sDepartment%20of%20Software%20Engineering%20UoAJK!5e0!3m2!1sen!2s!4v1681484769276!5m2!1sen!2s" allowfullscreen="" loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+     
+    </div>
+    <div class="form-container">
+      <h2>Get in Touch with the Instructor</h2>
+      <p>Have questions about lectures, labs, or assignments? Use the form below to contact your instructor or TA. We're here to support your learning journey.</p>
+      <form>
+        <input type="text" name="name" placeholder="Name">
+        <input type="email" name="email" placeholder="Email">
+        <input type="tel" name="tel" placeholder="Tel">
+        <textarea name="message" placeholder="Message" rows="4"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+  <footer>
+    All rights reserved ©2025
+  </footer>
+
+</body>
+</html>
