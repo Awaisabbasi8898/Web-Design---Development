@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Task 06 – CSS Animations</title>
+    <style>
+        /* 🌈 General Page Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background: linear-gradient(135deg, #2C5364, #203A43, #0F2027);
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+            color: #FFD369;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            margin-top: 50px;
+            color: #00ADB5;
+        }
+
+        hr {
+            width: 80%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin: 30px 0;
+        }
+
+        /* 🎾 Bouncing Balls Section */
+        .balls-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 250px;
+            gap: 40px;
+        }
+
+        .ball {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ff6a00, #ee0979);
+            animation: bounce 1.6s ease-in-out infinite;
+        }
+
+        .ball:nth-child(2) {
+            animation-delay: 0.3s;
+            background: radial-gradient(circle, #00c6ff, #0072ff);
+        }
+
+        .ball:nth-child(3) {
+            animation-delay: 0.6s;
+            background: radial-gradient(circle, #8E2DE2, #4A00E0);
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-150px);
+            }
+        }
+
+        /* 🎨 Color Morphing Boxes Section */
+        .boxes-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #ff6a00, #ee0979);
+            animation: colorShift 4s infinite alternate ease-in-out;
+        }
+
+        .box:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .box:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes colorShift {
+            0% {
+                background: linear-gradient(45deg, #ff6a00, #ee0979);
+                transform: rotate(0deg);
+            }
+            50% {
+                background: linear-gradient(45deg, #00c6ff, #0072ff);
+                transform: rotate(180deg);
+            }
+            100% {
+                background: linear-gradient(45deg, #8E2DE2, #4A00E0);
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 📱 Responsive Design */
+        @media (max-width: 768px) {
+            .balls-container, .boxes-container {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .ball, .box {
+                width: 80px;
+                height: 80px;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lab Task 06 – CSS Animations</h1>
+
+    <!-- 🎾 Bouncing Balls Animation -->
+    <h2>Part 1: Bouncing Balls Animation</h2>
+    <div class="balls-container">
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+    </div>
+
+    <hr>
+
+    <!-- 🎨 Color Morphing Boxes Animation -->
+    <h2>Part 2: Color Morphing Boxes</h2>
+    <div class="boxes-container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+   
+
+</body>
+</html>
